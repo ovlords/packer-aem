@@ -142,7 +142,7 @@ class config::base (
     ensure => installed,
   }
 
-  package { [ $python_package, $python_pip_package, $python_cheetah_package, $python_alt_package, ]:
+  package { [ $python_package, $python_alt_package, ]:
     ensure => latest,
   }
 
