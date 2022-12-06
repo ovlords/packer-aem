@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/shinesolutions/packer-aem/workflows/CI/badge.svg)](https://github.com/shinesolutions/packer-aem/actions?query=workflow%3ACI)
+[![Build Status](https://github.com/shinesolutions/packer-aem-internal/workflows/CI/badge.svg)](https://github.com/shinesolutions/packer-aem-internal/actions?query=workflow%3ACI)
 [![Known Vulnerabilities](https://snyk.io/test/github/shinesolutions/packer-aem/badge.svg)](https://snyk.io/test/github/shinesolutions/packer-aem)
 
 Packer AEM
@@ -18,22 +18,22 @@ The AMIs produced by Packer AEM will then be used by [AEM AWS Stack Builder](htt
 
 Learn more about Packer AEM:
 
-* [Installation](https://github.com/shinesolutions/packer-aem#installation)
-* [Configuration](https://github.com/shinesolutions/packer-aem/blob/master/docs/configuration.md)
-* [Usage](https://github.com/shinesolutions/packer-aem#usage)
-* [Testing](https://github.com/shinesolutions/packer-aem#testing)
-* [AWS Resources](https://github.com/shinesolutions/packer-aem/blob/master/docs/aws-resources.md)
-* [AWS System Tags](https://github.com/shinesolutions/packer-aem/blob/master/docs/aws-system-tags.md)
-* [Customisation Points](https://github.com/shinesolutions/packer-aem/blob/master/docs/customisation-points.md)
-* [Frequently Asked Questions](https://github.com/shinesolutions/packer-aem/blob/master/docs/faq.md)
-* [Upgrade Guide](https://github.com/shinesolutions/packer-aem/blob/master/docs/upgrade-guide.md)
+* [Installation](https://github.com/shinesolutions/packer-aem-internal#installation)
+* [Configuration](https://github.com/shinesolutions/packer-aem-internal/blob/master/docs/configuration.md)
+* [Usage](https://github.com/shinesolutions/packer-aem-internal#usage)
+* [Testing](https://github.com/shinesolutions/packer-aem-internal#testing)
+* [AWS Resources](https://github.com/shinesolutions/packer-aem-internal/blob/master/docs/aws-resources.md)
+* [AWS System Tags](https://github.com/shinesolutions/packer-aem-internal/blob/master/docs/aws-system-tags.md)
+* [Customisation Points](https://github.com/shinesolutions/packer-aem-internal/blob/master/docs/customisation-points.md)
+* [Frequently Asked Questions](https://github.com/shinesolutions/packer-aem-internal/blob/master/docs/faq.md)
+* [Upgrade Guide](https://github.com/shinesolutions/packer-aem-internal/blob/master/docs/upgrade-guide.md)
 
 Packer AEM is part of [AEM OpenCloud](https://aemopencloud.io) platform.
 
 Installation
 ------------
 
-- Either clone Packer AEM `git clone https://github.com/shinesolutions/packer-aem.git` or download one of the [released versions](https://github.com/shinesolutions/packer-aem/releases)
+- Either clone Packer AEM `git clone https://github.com/shinesolutions/packer-aem-internal.git` or download one of the [released versions](https://github.com/shinesolutions/packer-aem-internal/releases)
 - Install the following required tools:
   * [Packer](https://www.packer.io/) version 1.5.1 or later
   * [Ruby](https://www.ruby-lang.org/en/) version 2.3.0 or later
@@ -41,13 +41,13 @@ Installation
   * [GNU Make](https://www.gnu.org/software/make/)<br/>
 
   Alternatively, you can use [AEM Platform BuildEnv](https://github.com/shinesolutions/aem-platform-buildenv) Docker image version 1.3.0 or later to run Packer AEM build targets.
-- Resolve the [Puppet modules](https://github.com/shinesolutions/packer-aem/blob/master/Puppetfile), [Ruby gems](https://github.com/shinesolutions/packer-aem/blob/master/Gemfile), and [Python packages](https://github.com/shinesolutions/packer-aem/blob/master/requirements.txt) dependencies by running `make deps`
+- Resolve the [Puppet modules](https://github.com/shinesolutions/packer-aem-internal/blob/master/Puppetfile), [Ruby gems](https://github.com/shinesolutions/packer-aem-internal/blob/master/Gemfile), and [Python packages](https://github.com/shinesolutions/packer-aem-internal/blob/master/requirements.txt) dependencies by running `make deps`
 
 Usage
 -----
 
-- Set up the required [AWS resources](https://github.com/shinesolutions/packer-aem/blob/master/docs/aws-resources.md)
-- Create [configuration file](https://github.com/shinesolutions/packer-aem/blob/master/docs/configuration.md)
+- Set up the required [AWS resources](https://github.com/shinesolutions/packer-aem-internal/blob/master/docs/aws-resources.md)
+- Create [configuration file](https://github.com/shinesolutions/packer-aem-internal/blob/master/docs/configuration.md)
 - Create the AMIs by running `make <platform>-<component> version=<version> config_path=<path/to/config/dir>`, for example: `make aws-author version=1.2.3 config_path=stage/user-config/aws-rhel7-aem64/`
 
 To retrieve the latest AMI IDs for all [AEM AWS Stack Builder](https://github.com/shinesolutions/aem-aws-stack-builder) components, run the command `make ami-ids config_path=<path/to/config/dir>`, and the AMI IDs will be written into `stage/stack-builder-configs/<aem_profile>-<os_type>-stack-builder-ami-ids.yaml` file(s). These files can then be dropped in to AEM AWS Stack Builder configuration path.
