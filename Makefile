@@ -1,5 +1,6 @@
 # packer_aem_version: version of packer-aem to be packaged
 packer_aem_version ?= 5.21.3-pre.0
+package_name ?= packer-aem-internal
 # version: version of machine images to be created
 version ?= 1.0.0
 # custom image provisioner version for testing
@@ -29,7 +30,7 @@ package: stage
 	    --exclude='*.retry' \
 	    --exclude='*.iml' \
 	    -czf \
-	    stage/packer-aem-$(packer_aem_version).tar.gz .
+	    stage/$(package_name)-$(packer_aem_version).tar.gz .
 
 release-major:
 	rtk release --release-increment-type major
@@ -44,7 +45,7 @@ release: release-minor
 
 publish:
 	gh release create $(packer_aem_version) --title $(packer_aem_version) --notes "" || echo "Release $(packer_aem_version) has been created on GitHub"
-	gh release upload $(packer_aem_version) stage/packer-aem-$(packer_aem_version).tar.gz
+	gh release upload $(packer_aem_version) stage/$(package_name)-$(packer_aem_version).tar.gz
 
 ################################################################################
 # Dependencies resolution targets.
