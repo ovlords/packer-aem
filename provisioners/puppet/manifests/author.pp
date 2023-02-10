@@ -67,7 +67,14 @@ if $::config::base::install_cloudwatchlogs {
 }
 
 if $::config::base::install_collectd {
-  config::collectd_jmx { 'Setup collectd-generic-jmx plugin': }
+  config::collectd_jmx { '[author] Setup collectd-generic-jmx plugin':
+    require           => [
+      Class['config::certs'],
+      Class['aem_curator::install_aem_java']
+    ],
+    aem_id            => 'author',
+    jmx_keystore_path => '/etc/ssl/aem-author/jmx.ks',
+  }
 }
 
 if $::config::base::install_cloudwatch_metric_agent {

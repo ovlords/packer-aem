@@ -110,5 +110,20 @@ if $::config::base::install_cloudwatchlogs {
 include aem_curator::install_dispatcher
 
 if $::config::base::install_collectd {
-  config::collectd_jmx { 'Setup collectd-generic-jmx plugin': }
+  config::collectd_jmx { '[author] Setup collectd-generic-jmx plugin':
+    require           => [
+      Class['config::certs'],
+      Class['aem_curator::install_aem_java']
+    ],
+    aem_id            => 'author',
+    jmx_keystore_path => '/etc/ssl/aem-author/jmx.ks',
+  }
+  config::collectd_jmx { '[publish] Setup collectd-generic-jmx plugin':
+    require           => [
+      Class['config::certs'],
+      Class['aem_curator::install_aem_java']
+    ],
+    aem_id            => 'publish',
+    jmx_keystore_path => '/etc/ssl/aem-publish/jmx.ks',
+  }
 }
