@@ -116,7 +116,11 @@ if $::config::base::install_collectd {
       Class['aem_curator::install_aem_java']
     ],
     aem_id            => 'author',
-    jmx_keystore_path => '/etc/ssl/aem-author/jmx.ks',
+    # Loading JMX Keystore Path from the hiera parameter aem_keystore_path, to ensure
+    # we are using the same location for the JMX
+    jmx_keystore_path => dirname(hiera('aem_curator::install_author::aem_keystore_path')),
+    certificate       => "${::config::base::tmp_dir}/certs/aem.cert",
+    private_key       => "${::config::base::tmp_dir}/certs/aem.key",
   }
   config::collectd_jmx { '[publish] Setup collectd-generic-jmx plugin':
     require           => [
@@ -124,6 +128,10 @@ if $::config::base::install_collectd {
       Class['aem_curator::install_aem_java']
     ],
     aem_id            => 'publish',
-    jmx_keystore_path => '/etc/ssl/aem-publish/jmx.ks',
+    # Loading JMX Keystore Path from the hiera parameter aem_keystore_path, to ensure
+    # we are using the same location for the JMX
+    jmx_keystore_path => dirname(hiera('aem_curator::install_publish::aem_keystore_path')),
+    certificate       => "${::config::base::tmp_dir}/certs/aem.cert",
+    private_key       => "${::config::base::tmp_dir}/certs/aem.key",
   }
 }

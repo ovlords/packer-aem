@@ -52,7 +52,3 @@ aem_curator::install_dispatcher::apache_https_port: "443"
 base::awslogs_service_name: 'awslogs'
 base::awslogs_path: /var/awslogs
 base::awslogs_proxy_path: "%{hiera('base::awslogs_path')}/etc/proxy.conf"
-
-# JMX Keystore properties
-config::collectd_jmx::certificate: "%{lookup('tmp_dir')}/certs/aem.cert"
-config::collectd_jmx::private_key: "%{lookup('tmp_dir')}/certs/aem.key"

@@ -5,28 +5,22 @@ define config::collectd_jmx (
   $private_key,
   $jmx_keystore_password = 'changeit',
 ) {
-
   # collectd::plugin::genericjmx also installs collectd-java plugin, which in
-  # turn also installs openjdk and makes it a default alternative, hence we need
-  # to set the default back to Oracle JDK
-  class { 'collectd::plugin::genericjmx':
-    manage_package => true,
+  # turn also installs openjdk and makes it a default alternative, hence we need  # to set the default back to Oracle JDK
+  if !defined(Class['collectd::plugin::genericjmx']) {
+    class { 'collectd::plugin::genericjmx':
+      manage_package => true,
+    }
   }
-
-  file { dirname($jmx_keystore_path):
-    ensure => directory,
-    mode   => '0770',
-    owner  => "aem-${aem_id}",
-    group  => "aem-${aem_id}",
-  } -> java_ks { "jmx-ssl:${jmx_keystore_path}":
+  java_ks { "jmx-ssl:${jmx_keystore_path}/jmx.ks":
     ensure       => latest,
     certificate  => $certificate,
     private_key  => $private_key,
     password     => $jmx_keystore_password,
     trustcacerts => true,
-  } -> file { $jmx_keystore_path:
+  } -> file { "${jmx_keystore_path}/jmx.ks":
     ensure => file,
-    mode   => '0640',
+    mode   => '0400',
     owner  => "aem-${aem_id}",
     group  => "aem-${aem_id}",
   }
