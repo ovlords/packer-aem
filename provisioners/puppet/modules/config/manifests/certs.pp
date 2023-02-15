@@ -9,10 +9,10 @@
 #   Source URL path of TLS certificate and key, it could be s3://..., http://..., https://..., or file://....
 #
 # [*certificate_key_arn*]
-#   ARN of certificate key to retrieve from AWS Secrets Manager
+#   ARN of certificate key to retrieve from AWS Secrets Manager, s3://..., http://..., https://..., or file://....
 #
 # [*certificate_arn*]
-#   ARN of certificate to retrieve from AWS Certificate Manager (ACM)
+#   ARN of certificate to retrieve from AWS Certificate Manager (ACM), IAM, s3://..., http://..., https://..., or file://....
 #
 # [*tmp_dir*]
 #   Directory to store the certs and key in before they are removed.

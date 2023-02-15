@@ -51,6 +51,21 @@ describe file("#{aem_base}/aem/publish/aem-publish-#{aem_port}.jar") do
   it { should be_grouped_into 'aem-publish' }
 end
 
+describe file(File.dirname(aem_keystore_path)) do
+  it { should exist }
+  it { should be_directory }
+  it { should be_owned_by 'aem-publish' }
+  it { should be_grouped_into 'aem-publish' }
+end
+
+describe file("#{File.dirname(aem_keystore_path)}/jmx.ks") do
+  it { should exist }
+  it { should be_file }
+  its('mode') { should cmp '00400' }
+  it { should be_owned_by 'aem-publish' }
+  it { should be_grouped_into 'aem-publish' }
+end
+
 if aem_publish_ssl_method == 'jetty'
 
   describe file(aem_keystore_path) do
