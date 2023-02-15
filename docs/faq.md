@@ -22,3 +22,10 @@ Frequently Asked Questions
 
 * __Q:__ Why do I get an unsupported operation related to encrypted snapshots sharing error `Error modify AMI attributes: UnsupportedOperation: The requested operation is not supported. Images associated with encrypted Snapshots can not be shared.`?
   __A:__ This error can happen when you use a source AMI with an encrypted volume and then you're trying to share it with another AWS account, and this is not supported by AWS. To fix this, you need to remove the user configuration property `aws.ami_users` so that Packer AEM wouldn't try to modify the generated AMI by sharing it with another AWS account.
+
+* __Q:__ What is the JMX Java Keystore used for and how is it manged?
+  __A:__ The JMX Java Keystore is used to enable SSL encryption for the JMX communication on AEM. It allows to encrypt the network traffic between collectd & JMX for the collection of AEM metrics.
+
+  The JMX Java Keystore is part of the AMI and is created during the AMI baking using the `keytool` command. The JMX Certificate is valid for 1 year. To ensure that the SSL encryption is working the public key of the JMX Certificate is added to the default Java Keystore. This allows Collectd to successfull connect to JMX via SSL.
+
+  The Keystore is a self-managed Keystore. Updating the JMX certificate will require a new AMI baking.

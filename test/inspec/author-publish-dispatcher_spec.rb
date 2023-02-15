@@ -56,9 +56,20 @@ describe service('aem-author') do
   it { should_not be_running }
 end
 
-# describe aem_author_keystore_password do
-#   it { should_not match(/changeit/) }
-# end
+describe file(File.dirname(aem_author_keystore_path)) do
+  it { should exist }
+  it { should be_directory }
+  it { should be_owned_by 'aem-author' }
+  it { should be_grouped_into 'aem-author' }
+end
+
+describe file("#{File.dirname(aem_author_keystore_path)}/jmx.ks") do
+  it { should be_file }
+  it { should exist }
+  its('mode') { should cmp '00400' }
+  it { should be_owned_by 'aem-author' }
+  it { should be_grouped_into 'aem-author' }
+end
 
 if aem_author_ssl_method == 'jetty'
 
@@ -143,9 +154,21 @@ describe service('aem-publish') do
   it { should_not be_running }
 end
 
-# describe aem_publish_keystore_password do
-#   it { should_not match(/changeit/) }
-# end
+describe file(File.dirname(aem_publish_keystore_path)) do
+  it { should exist }
+  it { should be_directory }
+  it { should be_owned_by 'aem-publish' }
+  it { should be_grouped_into 'aem-publish' }
+end
+
+describe file("#{File.dirname(aem_publish_keystore_path)}/jmx.ks") do
+  it { should exist }
+  it { should be_file }
+  its('mode') { should cmp '00400' }
+  it { should be_owned_by 'aem-publish' }
+  it { should be_grouped_into 'aem-publish' }
+end
+
 if aem_publish_ssl_method == 'jetty'
   describe file(aem_publish_keystore_path) do
     it { should be_file }
