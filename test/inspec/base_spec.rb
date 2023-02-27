@@ -22,7 +22,7 @@ cloudwatchlogs_base_path ||= '/var/awslogs'
 awslogs_proxy_path = @hiera.lookup('base::awslogs_proxy_path', nil, @scope)
 
 yum_exclude_packages = @hiera.lookup('config::post::exclude_packages', nil, @scope)
-yum_exclude_packages ||= ['httpd*','puppet*']
+yum_exclude_packages ||= ['httpd*', 'puppet*']
 
 if os[:family] == 'redhat'
 
