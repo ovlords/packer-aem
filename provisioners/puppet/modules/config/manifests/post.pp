@@ -20,11 +20,11 @@ class config::post (
     # Using ini_settings instead of the built in yum config update of the
     # yum puppet module due to an error during updating yum.conf
     ini_setting { 'Exclude packages from yum update':
-      ensure  => present,
-      path    => '/etc/yum.conf',
-      section => 'main',
-      setting => 'exclude',
+      ensure            => present,
+      path              => '/etc/yum.conf',
+      section           => 'main',
+      setting           => 'exclude',
       key_val_separator => '=',
-      value   => $exclude_packages.join(' '),
+      value             => $exclude_packages.join(' '),
     }
 }
