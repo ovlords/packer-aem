@@ -13,3 +13,7 @@ config::license::tmp_dir: "%{lookup('tmp_dir')}"
 config::custom_image_provisioner::source_file: "%{hiera('config::base::tmp_dir')}/aem-custom-image-provisioner.tar.gz"
 # don't include trailing slash on the install_dir below, this is because Puppet Exec command can't handle double slashes
 config::custom_image_provisioner::install_dir: "%{hiera('config::base::tmp_dir')}/aem-custom-image-provisioner"
+
+config::post::exclude_packages:
+  - 'httpd*'
+  - 'puppet*'
