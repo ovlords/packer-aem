@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 ### Changed
 - Remove CloudWatch Logs state files #RS-143
+- Upgraded puppet-aem-curator to `3.35.0`
 
 ## 6.3.0 - 2023-03-03
 ### Changed
