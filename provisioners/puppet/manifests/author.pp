@@ -48,7 +48,7 @@ if $::config::base::install_cloudwatchlogs {
   }
 
   # At the end of doing all Cloudwatch actions we are disabling and stopping the
-  # CloudWatch agent, and removing the awslogs pid file.
+  # CloudWatch agent, and removing the awslogs pid & state file.
   # Related to https://github.com/shinesolutions/packer-aem/issues/192
   exec { 'Disable Cloudwatchlogs agent':
     command => "systemctl disable ${::config::base::awslogs_service_name}",
@@ -58,11 +58,17 @@ if $::config::base::install_cloudwatchlogs {
   } -> exec { 'Stop Cloudwatchlogs agent':
     command => "systemctl stop ${::config::base::awslogs_service_name}",
     path    => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
-    before  => File["${::config::base::awslogs_path}/state/awslogs.pid"],
+    before  =>  [
+                  File["${::config::base::awslogs_path}/state/awslogs.pid"],
+                  File["${::config::base::awslogs_path}/state/agent-state"],
+                ],
     require => Exec['Disable Cloudwatchlogs agent'],
   } -> file {"${::config::base::awslogs_path}/state/awslogs.pid":
     ensure  => absent,
-    require => Exec['Stop Cloudwatchlogs agent']
+    require => Exec['Stop Cloudwatchlogs agent'],
+  } -> file {"${::config::base::awslogs_path}/state/agent-state":
+    ensure  => absent,
+    require => Exec['Stop Cloudwatchlogs agent'],
   }
 }
 
