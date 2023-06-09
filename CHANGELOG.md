@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+- Upgrade ruby_aem_aws to 2.4.0
+
 ## 6.4.0 - 2023-04-27
 ### Changed
 - Remove CloudWatch Logs state files #RS-143
