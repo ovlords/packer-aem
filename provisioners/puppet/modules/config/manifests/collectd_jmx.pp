@@ -22,7 +22,6 @@ define config::collectd_jmx (
       $jdk_version_major = $jdk_version_splitted[0]
       $jdk_version_update = $jdk_version_splitted[1]
       # Support of different JDK8 versions with different binary pathes
-
       if Integer($jdk_version_update) == 371 {
         $java_home_path = "/usr/java/jdk1.${jdk_version_major}.0_${jdk_version_update}-amd64"
         $libjvm_content_path = "${java_home_path}/jre/lib/amd64/server/\n"
