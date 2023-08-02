@@ -6,7 +6,7 @@ config::package_manager_packages:
     version: 3.16.1
     provider: puppet_gem
   - name: ruby_aem_aws
-    version: 2.4.0
+    version: 3.0.0
     provider: puppet_gem
   - name: parallel
     version: 1.19.2
