@@ -17,7 +17,7 @@ config::package_manager_packages:
   - name: faraday
     version: 1.9.3
     provider: puppet_gem
-  - name: nori
+  - name: nori 
     version: 2.6.0
     provider: puppet_gem
   - name: inspec
