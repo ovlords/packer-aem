@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 ### Fixed
 - Fixed inspec dependency by pinning nori to 2.6.0 #RS-186
+- Fixed CI build issue by pinning rubocop-ast to 1.30.0 version 1.31.0 was breaking CI
 
 ## 7.0.2 - 2023-08-17
 ### Fixed
