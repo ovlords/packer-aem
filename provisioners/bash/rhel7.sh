@@ -9,6 +9,7 @@ PUPPET_AGENT_VERSION="${PUPPET_MAJOR_VERSION}.${PUPPET_MINOR_VERSION}.${PUPPET_P
 ARCH_TYPE=x86_64
 OS_TYPE=el
 OS_VERSION=7
+OS_MINOR_VERSION=14
 
 # Temporarily exclude python-urllib3 from upgrade due to error with unpacking rpm package python-urllib3-1.10.2-7.el7.noarch
 # `aws: error: unpacking of archive failed on file /usr/lib/python2.7/site-packages/urllib3/packages/ssl_match_hostname: cpio: rename`
@@ -21,7 +22,7 @@ yum -y upgrade --exclude=python-urllib3-*
 #
 # rpm -ivh --force https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
 # yum -y install puppet-agent epel-release
-rpm -ivh --force "https://dl.fedoraproject.org/pub/epel/epel-release-latest-${OS_VERSION}.noarch.rpm"
+rpm -ivh --force "https://archives.fedoraproject.org/pub/archive/epel/${OS_VERSION}/x86_64/Packages/e/epel-release-${OS_VERSION}-${OS_MINOR_VERSION}.noarch.rpm"
 
 if [[ "$(/opt/puppetlabs/puppet/bin/puppet --version)" == "${PUPPET_AGENT_VERSION}" ]]
 then
