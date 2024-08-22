@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Upgraded buildenv Docker images #RS-195
 - Updated RTK config required for upgrading version #RS-195
+- Explicity set github workspace ownership in actions entrypoint.sh #RS-195
 
 ## 7.0.5 - 2024-08-08
 ### Fixed
