@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 ### Changed
-- Upgrades buildenv Docker images #RS-195
+- Upgraded buildenv Docker images #RS-195
+- Updated RTK config required for upgrading version #RS-195
 
 ## 7.0.5 - 2024-08-08
 ### Fixed
