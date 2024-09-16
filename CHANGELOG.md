@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+- Upgrade puppet-aem-curator to 4.1.7
+
 ## 8.0.0 - 2024-08-23
 ### Changed
 - Upgraded buildenv Docker images #RS-195
