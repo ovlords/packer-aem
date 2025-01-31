@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add support for JDK 8u421 
 - Add support for JDK 11.0.24
 
+### Changed
+- Update Github Action Publish Docker image
+
 ## 8.0.2 - 2024-12-06
 ### Fixed
 - Corrects rtk config
