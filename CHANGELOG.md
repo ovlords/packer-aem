@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 ### Fixed
-- Resolves Ruby dependency issues for excon
+- Resolves broken dependency for excon by pinning to 1.2.5 #RS-200
 
 ## 8.0.3 - 2025-02-04
 ### Added
