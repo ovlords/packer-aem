@@ -29,6 +29,9 @@ config::package_manager_packages:
   - name: excon
     version: 1.2.5
     provider: puppet_gem
+  - name: ffi
+    version: 1.17.2
+    provider: puppet_gem
   - name: inspec
     version: 1.51.6
     provider: puppet_gem
