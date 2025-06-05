@@ -11,6 +11,12 @@ config::package_manager_packages:
   - name: parallel
     version: 1.19.2
     provider: puppet_gem
+  - name: ffi
+    version: 1.16.3
+    provider: puppet_gem
+  - name: mixlib-log
+    version: 3.1.2.1
+    provider: puppet_gem
   - name: faraday
     version: 1.9.3
     provider: puppet_gem

@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
+### Fixed
+- Resolves broken dependency for ffi by pinning to 1.17.2 #RS-200
+- Resolves broken dependency for mixlib-log by pinning to 3.1.2.1 #RS-200
 
 ## 8.0.4 - 2025-06-04
 ### Fixed
