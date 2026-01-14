@@ -9,6 +9,7 @@ PUPPET_AGENT_VERSION="${PUPPET_MAJOR_VERSION}.${PUPPET_MINOR_VERSION}.${PUPPET_P
 ARCH_TYPE=x86_64
 OS_TYPE=el
 OS_VERSION=7
+OS_MINOR_VERSION=14
 
 yum -y upgrade
 
@@ -21,7 +22,7 @@ yum -y upgrade
 yum -y install "https://yum.puppetlabs.com/puppet${PUPPET_MAJOR_VERSION}/${OS_TYPE}/${OS_VERSION}/${ARCH_TYPE}/puppet-agent-${PUPPET_AGENT_VERSION}-1.${OS_TYPE}${OS_VERSION}.${ARCH_TYPE}.rpm"
 yum -y install epel-release
 
-rpm -ivh --force "https://dl.fedoraproject.org/pub/epel/epel-release-latest-${OS_VERSION}.noarch.rpm"
+rpm -ivh --force "https://archives.fedoraproject.org/pub/archive/epel/${OS_VERSION}/x86_64/Packages/e/epel-release-${OS_VERSION}-${OS_MINOR_VERSION}.noarch.rpm"
 yum-config-manager --enable rhui-REGION-rhel-server-optional
 yum-config-manager --enable rhui-REGION-rhel-server-extras
 yum-config-manager --enable "rhel-${OS_VERSION}-server-rhui-optional-rpms"

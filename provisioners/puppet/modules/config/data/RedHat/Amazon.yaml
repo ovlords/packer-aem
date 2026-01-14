@@ -6,13 +6,31 @@ config::package_manager_packages:
     version: 3.16.1
     provider: puppet_gem
   - name: ruby_aem_aws
-    version: 2.3.1
+    version: 3.0.0
     provider: puppet_gem
   - name: parallel
     version: 1.19.2
     provider: puppet_gem
+  - name: ffi
+    version: 1.16.3
+    provider: puppet_gem
+  - name: mixlib-log
+    version: 3.1.2.1
+    provider: puppet_gem
   - name: faraday
     version: 1.9.3
+    provider: puppet_gem
+  - name: public_suffix
+    version: 5.0.5
+    provider: puppet_gem
+  - name: nori
+    version: 2.6.0
+    provider: puppet_gem
+  - name: winrm
+    version: 2.3.6
+    provider: puppet_gem
+  - name: excon
+    version: 1.2.5
     provider: puppet_gem
   - name: inspec
     version: 1.51.6
@@ -21,6 +39,8 @@ config::package_manager_packages:
     version: 1.139.0
     provider: puppet_gem
   - name: python3
+  - name: 'https://cloudformation-examples.s3.amazonaws.com/aws-cfn-bootstrap-py3-latest.tar.gz'
+    provider: pip3
 
 config::base::os_package_manager_packages:
   - bind-utils

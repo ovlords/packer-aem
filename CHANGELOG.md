@@ -7,6 +7,132 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 8.0.5 - 2025-06-05
+### Fixed
+- Resolves broken dependency for ffi by pinning to 1.17.2 #RS-200
+- Resolves broken dependency for mixlib-log by pinning to 3.1.2.1 #RS-200
+
+## 8.0.4 - 2025-06-04
+### Fixed
+- Resolves broken dependency for excon by pinning to 1.2.5 #RS-200
+
+## 8.0.3 - 2025-02-04
+### Added
+- Add support for JDK 8u421
+- Add support for JDK 11.0.24
+
+### Changed
+- Update Github Action Publish Docker image
+- Upgrade puppet-aem-curator to 4.1.8
+
+## 8.0.2 - 2024-12-06
+### Fixed
+- Corrects rtk config
+
+## 8.0.1 - 2024-09-16
+### Changed
+- Upgrade puppet-aem-curator to 4.1.7
+
+## 8.0.0 - 2024-08-23
+### Changed
+- Upgraded buildenv Docker images #RS-195
+- Updated RTK config required for upgrading version #RS-195
+- Explicity set github workspace ownership in actions entrypoint.sh #RS-195
+
+## 7.0.5 - 2024-08-08
+### Fixed
+- Resolves Ruby dependency issues for public_suffix and winrm gems
+
+## 7.0.4 - 2024-08-07
+### Changed
+- Switch EPEL rpm download source to Fedora Project Archives [#20]
+
+### Fixed
+- Fixed facter request bug by defining full path to binary
+
+## 7.0.3 - 2024-03-01
+### Fixed
+- Fixed inspec dependency by pinning nori to 2.6.0 #RS-186
+- Fixed CI build issue by pinning rubocop-ast to 1.30.0 version 1.31.0 was breaking CI
+
+## 7.0.2 - 2023-08-17
+### Fixed
+- Fixed S3 Download URl for python3 cfn-bootstrap
+
+## 7.0.1 - 2023-08-17
+### Changed
+- Updated puppet module kemra102/cloudwatchlogs
+
+## 7.0.0 - 2023-08-03
+### Changed
+- Upgrade puppet-aem-curator to 4.0.0 #RS-160
+- Upgrade ruby_aem-aws to 3.0.0 #RS-160
+
+## 6.8.0 - 2023-07-26
+### Changed
+- Upgrade puppet-aem-curator to 3.41.0 #RS-166
+
+## 6.7.0 - 2023-06-26
+### Changed
+- Upgraded puppet-aem-curator to 3.40.3 #RS-146
+
+## 6.6.3 - 2023-06-24
+### Changed
+- Upgraded puppet-aem-curator to 3.40.2 #RS-146
+
+## 6.6.2 - 2023-06-23
+### Fixed
+- Corrected java_home_path for java 8_371 #RS-146
+
+## 6.6.1 - 2023-06-23
+### Changed
+- Upgraded puppet-aem-curator to 3.40.1 #RS-146
+
+## 6.6.0 - 2023-06-22
+### Added
+- JDK 371 Support Added #RS-146
+- Upgraded puppet-aem-curator to 3.40.0 #RS-146
+
+## 6.5.0 - 2023-06-09
+### Changed
+- Upgrade ruby_aem_aws to 2.4.0
+- Upgrade puppet-aem-resources to 7.10.1
+- Upgraded puppet-aem-curator to 3.38.0
+
+## 6.4.0 - 2023-04-27
+### Changed
+- Remove CloudWatch Logs state files #RS-143
+- Upgraded puppet-aem-curator to `3.35.0`
+
+## 6.3.0 - 2023-03-03
+### Changed
+- Changed aem service management to systemd #RS-40
+- Upgraded puppet-aem-curator to `3.34.0` #RS-40
+
+## 6.2.0 - 2023-02-27
+### Added
+- Add new provisioning step `post` to execute post activities #RS-138
+- Excluding `httpd` & `puppet*` from being updated after installation #RS-138
+
+## 6.1.0 - 2023-02-19
+### Added
+- Add installation of AWS CloudFormation Helper scripts `aws-cfn-bootstrap-py3` #RS-62
+
+## 6.0.2 - 2023-02-15
+### Fixed
+- Fixed creation of JMX Java Keystore to use for JMX with enabled SSL #RS-124
+
+## 6.0.1 - 2023-02-13
+### Fixed
+- Fixed creation of JMX Java Keystore to use for JMX with enabled SSL #RS-124
+
+## 6.0.0 - 2023-02-10
+### Added
+- Add creation of JMX Java Keystore to use for JMX with enabled SSL #RS-124
+
+### Changed
+- Update Packer-AEM Release artifact name to packer-aem-internal
+
 ## 5.21.3 - 2023-08-18
 ### Changed
 - Updated puppet module kemra102/cloudwatchlogs
